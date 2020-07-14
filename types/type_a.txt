@@ -1,0 +1,16 @@
+Пользователи /users
+	Создание /create
+	Список /list
+		Активные /active
+		Удаленные /deleted
+	Поиск /search
+Заявки /requests
+	Заявки на поключение /connecting
+	Заявки на ремонт /repairs
+	Заявки на обход /round
+Отчёты /reports
+	Отдел маркетинга /marketing
+		Отчёт по списаниям /write-offs
+		Отчёт по расходам /costs
+		Годовой отчёт /year
+	Управление /control
