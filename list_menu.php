@@ -1,20 +1,46 @@
 <?php
 
-require_once './core/connect.php';
-require_once './core/functions/generate_category_indent.php';
+require_once './app/core.php';
+
+use models\Category;
 
 try {
-	$categories = $DbConnect->query('SELECT * from categories WHERE parent_category_id IS NULL')->fetchAll();
-
-	$listMenu = '';
-
-	foreach ($categories as $category) {
-		$listMenu .= generate_category_indent($category, $DbConnect);
-	}
-
-	file_put_contents('./types/type_a.txt', $listMenu);
-
-	echo "<pre>$listMenu</pre>";
+	$typeAListMenu = Category::getListMenu();
+	$typeBListMenu = Category::getListMenu(Category::TYPE_B, 1);
 } catch (PDOException $Exception) {
 	echo $Exception->getMessage();
 }
+
+file_put_contents('./types/type_a.txt', $typeAListMenu);
+file_put_contents('./types/type_b.txt', $typeBListMenu);
+
+?>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Рекурсивное меню - Вывод</title>
+</head>
+<body>
+	<?php if (!empty($typeAListMenu)): ?>
+		<div>
+			<p>TYPE A</p>
+			<pre><?= $typeAListMenu ?></pre>
+			<a href="/types/type_a.txt" download>Скачать файл type_a.txt</a>
+		</div>
+	<?php endif; ?>
+
+	<?php if (!empty($typeBListMenu)): ?>
+		<div>
+			<p>TYPE B</p>
+			<pre><?= $typeBListMenu ?></pre>
+			<a href="/types/type_b.txt" download>Скачать файл type_b.txt</a>
+		</div>
+	<?php endif; ?>
+
+	<p>
+		<a href="/">Вернуться на главную</a>
+	</p>
+</body>
+</html>

@@ -1,16 +1,16 @@
 Пользователи /users
-	Создание /create
-	Список /list
-		Активные /active
-		Удаленные /deleted
-	Поиск /search
+	Создание /users/create
+	Список /users/list
+		Активные /users/list/active
+		Удаленные /users/list/deleted
+	Поиск /users/search
 Заявки /requests
-	Заявки на поключение /connecting
-	Заявки на ремонт /repairs
-	Заявки на обход /round
+	Заявки на поключение /requests/connecting
+	Заявки на ремонт /requests/repairs
+	Заявки на обход /requests/round
 Отчёты /reports
-	Отдел маркетинга /marketing
-		Отчёт по списаниям /write-offs
-		Отчёт по расходам /costs
-		Годовой отчёт /year
-	Управление /control
+	Отдел маркетинга /reports/marketing
+		Отчёт по списаниям /reports/marketing/write-offs
+		Отчёт по расходам /reports/marketing/costs
+		Годовой отчёт /reports/marketing/year
+	Управление /reports/control
