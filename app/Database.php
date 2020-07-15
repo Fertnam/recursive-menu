@@ -41,6 +41,20 @@ class Database {
 	}
 
 	/**
+	  * Отключаем клонирование
+	  *
+	  * @access protected
+	  */
+	protected function __clone() {}
+
+	/**
+	  * Отключаем десериализацию
+	  *
+	  * @access public
+	  */
+    public function __wakeup() {}
+
+	/**
 	  * Установить соединение с БД
 	  *
 	  * @access public

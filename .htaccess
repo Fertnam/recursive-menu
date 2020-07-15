@@ -1,0 +1,11 @@
+# Запрещаем доступ ко всем json и lock файлам
+<FilesMatch ".(json|lock)$">
+	Deny from all
+</FilesMatch>
+
+# При возникновении ошибок 403 и 404 выводим главную страницу
+ErrorDocument 404 /
+ErrorDocument 403 /
+
+# Отображаем файлы без расширения в url
+Options +MultiViews

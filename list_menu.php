@@ -11,8 +11,9 @@ try {
 	echo $Exception->getMessage();
 }
 
-file_put_contents('./types/type_a.txt', $typeAListMenu);
-file_put_contents('./types/type_b.txt', $typeBListMenu);
+//Заполняем текстовые файлы
+file_put_contents(TYPE_PATH . 'type_a.txt', $typeAListMenu);
+file_put_contents(TYPE_PATH . 'type_b.txt', $typeBListMenu);
 
 ?>
 
@@ -38,7 +39,7 @@ file_put_contents('./types/type_b.txt', $typeBListMenu);
 			<a href="/types/type_b.txt" download>Скачать файл type_b.txt</a>
 		</div>
 	<?php endif; ?>
-
+	<hr>
 	<p>
 		<a href="/">Вернуться на главную</a>
 	</p>

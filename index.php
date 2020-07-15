@@ -6,8 +6,8 @@
 </head>
 <body>
 	<div>
-		<a href="/db.php">Заполнить БД</a>
-		<a href="/list_menu.php">Вывести категории из БД</a>
+		<a href="/db">Заполнить БД</a>
+		<a href="/list_menu">Вывести категории из БД</a>
 	</div>
 </body>
 </html>

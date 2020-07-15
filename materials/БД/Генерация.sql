@@ -22,7 +22,6 @@ CREATE TABLE categories (
 
 ALTER TABLE categories ADD FOREIGN KEY(parent_category_id) REFERENCES categories(id) ON UPDATE CASCADE ON DELETE SET NULL;
 
-
 -- Триггеры --
 DELIMITER //
 

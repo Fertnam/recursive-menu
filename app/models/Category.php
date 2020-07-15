@@ -16,14 +16,14 @@ class Category extends Model
 	  *
 	  * @var string Шаблон строки для элемента меню с отступами для type_a.txt
 	  */
-	const TYPE_A = ":name :path\n";
+	const TYPE_A = ':name :path';
 
 	/**
 	  * @access public
 	  *
 	  * @var string Шаблон строки для элемента меню с отступами для type_b.txt
 	  */
-	const TYPE_B = ":name\n";
+	const TYPE_B = ':name';
 
 	/**
 	  * @access public
@@ -76,8 +76,8 @@ class Category extends Model
 		]);
 
 		if (!empty($category['childrens'])) {
-			foreach ($category['childrens'] as $children) {
-				self::createRecursively($children, $category['id'], $level + 1);
+			foreach ($category['childrens'] as $child) {
+				self::createRecursively($child, $category['id'], $level + 1);
 			}
 		}
 	}
@@ -101,8 +101,8 @@ class Category extends Model
 
 		$result = '';
 
-		foreach ($headCategories as $Сategory) {
-			$result .= $Сategory->getMenuItemRecursively($type, $levelMax);
+		foreach ($headCategories as $headCategory) {
+			$result .= $headCategory->getMenuItemRecursively($type, $levelMax);
 		}
 
 		return $result;
@@ -127,11 +127,11 @@ class Category extends Model
 				$pattern = str_replace(":$key", $value, $pattern);
 			}
 
-			$result .= str_repeat("\t", $this->level) . $pattern;
+			$result .= str_repeat("\t", $this->level) . $pattern . PHP_EOL;
 
 			if (!empty($this->childrens)) {
-				foreach ($this->childrens as $Сhildren) {
-					$result .= $Сhildren->getMenuItemRecursively($type, $levelMax);
+				foreach ($this->childrens as $child) {
+					$result .= $child->getMenuItemRecursively($type, $levelMax);
 				}
 			}
 		}

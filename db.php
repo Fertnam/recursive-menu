@@ -5,7 +5,7 @@ require_once './app/core.php';
 use Illuminate\Database\Capsule\Manager as DB;
 use models\Category;
 
-$categories = json_decode(file_get_contents('./app/categories.json'), true);
+$categories = json_decode(file_get_contents(APP_PATH . 'categories.json'), true);
 
 try {
 	DB::transaction(function() use ($categories) {
